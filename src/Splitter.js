@@ -1,4 +1,5 @@
 import React from "react";
+import Button from "@material-ui/core/Button";
 
 import AddUser from "./AddUser.js";
 import UserTable from "./UserTable.js";
@@ -123,9 +124,14 @@ class Splitter extends React.Component {
             return { id: participant.id, name: participant.name };
           })}
         />
-        <button onClick={this.handleSplitClick} className="button">
+        <Button
+          onClick={this.handleSplitClick}
+          className="button"
+          color="primary"
+          variant="contained"
+        >
           Split !t{" "}
-        </button>
+        </Button>
         {this.state.settleClicked && (
           <Settlement participants={this.state.participants} />
         )}

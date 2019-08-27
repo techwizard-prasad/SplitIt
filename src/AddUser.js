@@ -1,5 +1,9 @@
 import React from "react";
-import "./Styles/App.css";
+import Card from "@material-ui/core/Card";
+import TextField from "@material-ui/core/TextField";
+import Button from "@material-ui/core/Button";
+import Grid from "@material-ui/core/Grid";
+//import { makeStyles } from "@material-ui/core";
 
 class AddUser extends React.Component {
   constructor(props) {
@@ -30,23 +34,40 @@ class AddUser extends React.Component {
     });
   }
 
+  // useStyle = makeStyles(theme => ({
+  //   grid: {
+  //     marginTop: "50px"
+  //   }
+  // }));
+
   render() {
     return (
-      <div>
-        <input
-          type="input"
-          placeholder="Enter Name"
-          value={this.state.name}
-          onChange={this.handleChange}
-        />
-        <br />
-        <input
-          type="button"
-          onClick={this.saveUser}
-          value="Save User"
-          className="button"
-        />
-      </div>
+      <Grid
+        container
+        alignItems="center"
+        justify="center"
+        style={{ marginTop: "15px" }}
+      >
+        <Grid item xs={8} sm={8} md={8}>
+          <Card>
+            <TextField
+              type="input"
+              placeholder="Enter Name"
+              value={this.state.name}
+              onChange={this.handleChange}
+              style={{ marginTop: "10px", marginBottom: "10px" }}
+            />
+            <br />
+            <Button
+              onClick={this.saveUser}
+              style={{ marginBottom: "10px" }}
+              color="primary"
+            >
+              Save User
+            </Button>
+          </Card>
+        </Grid>
+      </Grid>
     );
   }
 }

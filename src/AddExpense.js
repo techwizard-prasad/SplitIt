@@ -1,5 +1,10 @@
 import React from "react";
-import "./Styles/App.css";
+import Card from "@material-ui/core/Card";
+import TextField from "@material-ui/core/TextField";
+import MenuItem from "@material-ui/core/MenuItem";
+import Checkbox from "@material-ui/core/Checkbox";
+import Button from "@material-ui/core/Button";
+import Grid from "@material-ui/core/Grid";
 
 class AddExpense extends React.Component {
   constructor(props) {
@@ -77,9 +82,9 @@ class AddExpense extends React.Component {
       this.props.numberOfUsers > 0 &&
       this.props.participants.map((user, i) => {
         return (
-          <option key={i} value={user.id}>
+          <MenuItem key={i} value={user.id}>
             {user.name}
-          </option>
+          </MenuItem>
         );
       });
 
@@ -88,7 +93,7 @@ class AddExpense extends React.Component {
       this.state.participants.map((user, i) => {
         return (
           <label key={i}>
-            <input
+            <Checkbox
               type="checkbox"
               value={user.id}
               onChange={this.handleChange}
@@ -100,49 +105,59 @@ class AddExpense extends React.Component {
         );
       });
     return (
-      <div>
-        <input
-          type="input"
-          placeholder="On What?"
-          name="name"
-          value={this.state.name}
-          onChange={this.handleChange}
-        />
-        <br />
+      <Grid
+        container
+        alignItems="center"
+        justify="center"
+        style={{ marginTop: "15px" }}
+      >
+        <Grid item xs={8} sm={8} md={8}>
+          <Card>
+            <TextField
+              placeholder="On What?"
+              name="name"
+              value={this.state.name}
+              onChange={this.handleChange}
+            />
+            <br />
 
-        <input
-          type="number"
-          placeholder="Amount"
-          name="price"
-          value={this.state.price}
-          onChange={this.handleChange}
-        />
-        <br />
+            <TextField
+              type="number"
+              placeholder="Amount"
+              name="price"
+              value={this.state.price}
+              onChange={this.handleChange}
+            />
+            <br />
 
-        <label>
-          Who Paid?
-          <select
-            id="user"
-            name="user"
-            value={this.state.user}
-            onChange={this.handleChange}
-          >
-            <option value={0}>Select User</option>
-            {userListForDropdown}
-          </select>
-        </label>
-        <br />
+            <label>
+              Who Paid?
+              <TextField
+                select
+                id="user"
+                name="user"
+                value={this.state.user}
+                onChange={this.handleChange}
+              >
+                <MenuItem value={0}>Select User</MenuItem>
+                {userListForDropdown}
+              </TextField>
+            </label>
+            <br />
 
-        {userListForCheckBox}
-        <br />
+            {userListForCheckBox}
+            <br />
 
-        <input
-          type="button"
-          onClick={this.AddExpense}
-          value="Add Expense"
-          className="button"
-        />
-      </div>
+            <Button
+              onClick={this.AddExpense}
+              color="primary"
+              style={{ marginBottom: "10px" }}
+            >
+              Add Expense
+            </Button>
+          </Card>
+        </Grid>
+      </Grid>
     );
   }
 }
