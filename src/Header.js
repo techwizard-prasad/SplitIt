@@ -7,7 +7,7 @@ class Header extends React.Component {
   render() {
     return (
       <AppBar
-        position="static"
+        position="sticky"
         style={{ backgroundColor: "#333333", color: "#e5e5e5" }}
       >
         <Toolbar>

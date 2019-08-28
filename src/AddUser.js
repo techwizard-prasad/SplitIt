@@ -60,7 +60,7 @@ class AddUser extends React.Component {
             <br />
             <Button
               onClick={this.saveUser}
-              style={{ marginBottom: "10px" }}
+              style={{ marginBottom: "5px" }}
               color="primary"
             >
               Save User

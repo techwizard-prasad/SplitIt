@@ -113,45 +113,46 @@ class AddExpense extends React.Component {
       >
         <Grid item xs={8} sm={8} md={8}>
           <Card>
-            <TextField
-              placeholder="On What?"
-              name="name"
-              value={this.state.name}
-              onChange={this.handleChange}
-            />
-            <br />
-
-            <TextField
-              type="number"
-              placeholder="Amount"
-              name="price"
-              value={this.state.price}
-              onChange={this.handleChange}
-            />
-            <br />
-
-            <label>
-              Who Paid?
+            <div style={{ maxHeight: "170px", overflowY: "scroll" }}>
               <TextField
-                select
-                id="user"
-                name="user"
-                value={this.state.user}
+                placeholder="On What?"
+                name="name"
+                value={this.state.name}
                 onChange={this.handleChange}
-              >
-                <MenuItem value={0}>Select User</MenuItem>
-                {userListForDropdown}
-              </TextField>
-            </label>
-            <br />
+              />
+              <br />
 
-            {userListForCheckBox}
-            <br />
+              <TextField
+                type="number"
+                placeholder="Amount"
+                name="price"
+                value={this.state.price}
+                onChange={this.handleChange}
+              />
+              <br />
 
+              <label>
+                Who Paid?
+                <TextField
+                  select
+                  id="user"
+                  name="user"
+                  value={this.state.user}
+                  onChange={this.handleChange}
+                >
+                  <MenuItem value={0}>Select User</MenuItem>
+                  {userListForDropdown}
+                </TextField>
+              </label>
+              <br />
+
+              {userListForCheckBox}
+              <br />
+            </div>
             <Button
               onClick={this.AddExpense}
               color="primary"
-              style={{ marginBottom: "10px" }}
+              style={{ marginBottom: "5px" }}
             >
               Add Expense
             </Button>
