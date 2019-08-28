@@ -34,19 +34,13 @@ class AddUser extends React.Component {
     });
   }
 
-  // useStyle = makeStyles(theme => ({
-  //   grid: {
-  //     marginTop: "50px"
-  //   }
-  // }));
-
   render() {
     return (
       <Grid
         container
         alignItems="center"
         justify="center"
-        style={{ marginTop: "15px" }}
+        style={{ marginTop: "5px" }}
       >
         <Grid item xs={8} sm={8} md={8}>
           <Card>
