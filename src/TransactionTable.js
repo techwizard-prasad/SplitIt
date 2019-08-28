@@ -29,7 +29,7 @@ function TransactionTable(props) {
       style={{ marginTop: "15px" }}
     >
       <Grid item xs={12} sm={12} md={12}>
-        <Card style={{ maxHeight: "600px", overflowY: "scroll" }}>
+        <Card style={{ maxHeight: "300px", overflowY: "scroll" }}>
           {props.transactions.length > 0 ? (
             <div>
               <Typography variant="h6">Settlement</Typography>

@@ -109,11 +109,11 @@ class AddExpense extends React.Component {
         container
         alignItems="center"
         justify="center"
-        style={{ marginTop: "15px" }}
+        style={{ marginTop: "5px" }}
       >
         <Grid item xs={8} sm={8} md={8}>
           <Card>
-            <div style={{ maxHeight: "170px", overflowY: "scroll" }}>
+            <div style={{ maxHeight: "100px", overflowY: "scroll" }}>
               <TextField
                 placeholder="On What?"
                 name="name"
