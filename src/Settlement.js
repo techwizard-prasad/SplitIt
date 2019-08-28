@@ -72,7 +72,7 @@ class Settlement extends React.Component {
 
   init() {
     let paymentsList = this.state.paymentsList;
-    while (paymentsList.length > 0) {
+    while (paymentsList.length > 1) {
       paymentsList.sort(function(a, b) {
         return b.priceDifference - a.priceDifference;
       });
