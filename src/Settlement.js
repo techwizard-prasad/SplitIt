@@ -35,9 +35,9 @@ class Settlement extends React.Component {
         to: paymentsList[0].name,
         amount: Math.abs(paymentsList[listLength - 1].priceDifference)
       };
-      paymentsList[0].priceDifference -= Math.abs(
-        paymentsList[listLength - 1].priceDifference
-      );
+      paymentsList[0].priceDifference =
+        Number(paymentsList[0].priceDifference) -
+        Number(Math.abs(paymentsList[listLength - 1].priceDifference));
       paymentsList.pop();
     } else if (
       paymentsList[0].priceDifference <
@@ -48,8 +48,9 @@ class Settlement extends React.Component {
         to: paymentsList[0].name,
         amount: paymentsList[0].priceDifference
       };
-      paymentsList[listLength - 1].priceDifference +=
-        paymentsList[0].priceDifference;
+      paymentsList[listLength - 1].priceDifference =
+        Number(paymentsList[listLength - 1].priceDifference) +
+        Number(paymentsList[0].priceDifference);
       paymentsList.shift();
     } else {
       transaction = {
@@ -60,8 +61,7 @@ class Settlement extends React.Component {
       paymentsList.pop();
       paymentsList.shift();
     }
-
-    transactions.push(transaction);
+    if (Number(transaction.amount) !== 0) transactions.push(transaction);
 
     this.setState({
       transactions: transactions

@@ -35,10 +35,10 @@ function UserTable(props) {
         container
         alignItems="center"
         justify="center"
-        style={{ marginTop: "15px" }}
+        style={{ marginTop: "5px" }}
       >
         <Grid item xs={12} sm={12} md={12}>
-          <Card>
+          <Card style={{ maxHeight: "335px", overflowY: "scroll" }}>
             <Typography variant="h6">Participants</Typography>
             <div style={{ overflowX: "scroll" }}>
               <Table align="center" size="medium">

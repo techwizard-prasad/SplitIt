@@ -35,10 +35,10 @@ function ExpanseTable(props) {
         container
         alignItems="center"
         justify="center"
-        style={{ marginTop: "15px" }}
+        style={{ marginTop: "5px" }}
       >
         <Grid item xs={12} sm={12} md={12}>
-          <Card>
+          <Card style={{ maxHeight: "220px", overflowY: "scroll" }}>
             <Typography variant="h6">Expenses</Typography>
             <div style={{ overflowX: "scroll" }}>
               <Table align="center" size="medium">
