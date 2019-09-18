@@ -100,7 +100,7 @@ class AddExpense extends React.Component {
 
     this.setState({
       name: "",
-      price: 0,
+      price: "",
       user: 0,
       participants: resetParticipants
     });
