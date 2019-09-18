@@ -40,7 +40,7 @@ function ExpanseTable(props) {
         <Grid item xs={12} sm={12} md={12}>
           <Card style={{ maxHeight: "27vh", overflowY: "auto" }}>
             <Typography variant="h6">Expenses</Typography>
-            <div style={{}}>
+            <div style={{ overflowX: "auto" }}>
               <Table align="center" size="medium">
                 <TableHead>
                   <TableRow>
