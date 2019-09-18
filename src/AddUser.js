@@ -23,6 +23,10 @@ class AddUser extends React.Component {
   }
 
   saveUser() {
+    if (this.state.name.trim() === "") {
+      alert("Please enter name of participant.");
+      return;
+    }
     let user = {
       id: this.props.currentId + 1,
       name: this.state.name

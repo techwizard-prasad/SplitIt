@@ -180,7 +180,7 @@ class Splitter extends React.Component {
     const steps = ["Add Users", "Add Expenses", "Split"];
 
     return (
-      <div style={{ overflowY: "scroll" }}>
+      <div style={{ overflowY: "auto" }}>
         {UserScreen}
         {ExpenseScreen}
         {this.state.settleClicked && (

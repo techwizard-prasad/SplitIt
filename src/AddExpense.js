@@ -11,14 +11,14 @@ class AddExpense extends React.Component {
     super(props);
     this.state = {
       name: "",
-      price: 0,
+      price: "",
       user: 0,
       participants: []
     };
 
     this.handleChange = this.handleChange.bind(this);
     this.AddExpense = this.AddExpense.bind(this);
-    //this.resetProduct = this.resetProduct.bind(this);
+    this.ValidateExpense = this.ValidateExpense.bind(this);
   }
 
   handleChange(e) {
@@ -42,8 +42,37 @@ class AddExpense extends React.Component {
   }
 
   AddExpense() {
-    this.props.AddExpense(this.state);
-    this.resetProduct();
+    if (this.ValidateExpense()) {
+      this.props.AddExpense(this.state);
+      this.resetProduct();
+    } else {
+      return;
+    }
+  }
+
+  ValidateExpense() {
+    if (this.state.name.trim() === "") {
+      alert("Please enter the expense title");
+      return false;
+    }
+    if (this.state.price <= 0) {
+      alert("Please enter price.");
+      return false;
+    }
+    if (this.state.user <= 0) {
+      alert("Please select the user.");
+      return false;
+    }
+    debugger;
+    if (
+      this.state.participants.every(
+        participant => participant.selected === false
+      )
+    ) {
+      alert("Please select atleast one participant.");
+      return false;
+    }
+    return true;
   }
 
   UNSAFE_componentWillReceiveProps(nextProps) {
