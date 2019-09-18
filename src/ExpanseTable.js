@@ -38,9 +38,9 @@ function ExpanseTable(props) {
         style={{ marginTop: "5px" }}
       >
         <Grid item xs={12} sm={12} md={12}>
-          <Card style={{ maxHeight: "220px", overflowY: "scroll" }}>
+          <Card style={{ maxHeight: "27vh", overflowY: "auto" }}>
             <Typography variant="h6">Expenses</Typography>
-            <div style={{ overflowX: "scroll" }}>
+            <div style={{}}>
               <Table align="center" size="medium">
                 <TableHead>
                   <TableRow>
