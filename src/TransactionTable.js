@@ -26,17 +26,21 @@ function TransactionTable(props) {
       container
       alignItems="center"
       justify="center"
-      style={{ marginTop: "15px" }}
+      style={{
+        marginTop: "15px",
+        marginLeft: "50%",
+        transform: "translateX(-50%)"
+      }}
     >
       <Grid item xs={12} sm={12} md={12}>
-        <Card style={{ maxHeight: "300px", overflowY: "scroll" }}>
+        <Card style={{ maxHeight: "300px", overflowY: "auto" }}>
           {props.transactions.length > 0 ? (
             <div>
               <Typography variant="h6">Settlement</Typography>
               <Typography variant="subtitle2">
                 Settle all your debts in following ways
               </Typography>
-              <div style={{ overflowX: "scroll" }}>
+              <div style={{ overflowX: "auto" }}>
                 <Table align="center" size="medium">
                   <TableHead>
                     <TableRow>

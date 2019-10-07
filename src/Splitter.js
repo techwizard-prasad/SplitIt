@@ -64,6 +64,10 @@ class Splitter extends React.Component {
 
   AddExpense(product) {
     let newProducts = this.state.products;
+
+    product.totalPrice =
+      Number(product.price) + Number(product.price) * Number(product.tax);
+
     newProducts.push(product);
 
     let participants = this.state.participants;
@@ -80,16 +84,20 @@ class Splitter extends React.Component {
         )
       ) {
         participant.amountPayable +=
-          product.price / tempProductParticipants.length;
+          (Number(product.price) +
+            Number(product.price) * Number(product.tax)) /
+          tempProductParticipants.length;
       }
       if (participant.id === Number(product.user)) {
-        participant.contribution += Number(product.price);
+        participant.contribution +=
+          Number(product.price) + Number(product.price) * product.tax;
       }
     });
 
     this.setState({
       products: newProducts,
-      settleClicked: false
+      settleClicked: false,
+      participants: participants
     });
   }
 
