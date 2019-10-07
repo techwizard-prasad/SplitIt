@@ -5,6 +5,7 @@ import MenuItem from "@material-ui/core/MenuItem";
 import Checkbox from "@material-ui/core/Checkbox";
 import Button from "@material-ui/core/Button";
 import Grid from "@material-ui/core/Grid";
+import Typography from "@material-ui/core/Typography";
 
 class AddExpense extends React.Component {
   constructor(props) {
@@ -13,7 +14,8 @@ class AddExpense extends React.Component {
       name: "",
       price: "",
       user: 0,
-      participants: []
+      participants: [],
+      tax: 0.0
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -159,9 +161,25 @@ class AddExpense extends React.Component {
                 onChange={this.handleChange}
               />
               <br />
-
+              <TextField
+                select
+                id="tax"
+                name="tax"
+                value={this.state.tax}
+                onChange={this.handleChange}
+              >
+                <MenuItem value={0.0}>0% Tax</MenuItem>
+                <MenuItem value={0.05}>5% Tax</MenuItem>
+                <MenuItem value={0.12}>12% Tax</MenuItem>
+                <MenuItem value={0.125}>12.5% Tax</MenuItem>
+                <MenuItem value={0.13}>13% Tax</MenuItem>
+                <MenuItem value={0.15}>15% Tax</MenuItem>
+                <MenuItem value={0.18}>18% Tax</MenuItem>
+                <MenuItem value={0.28}>28% Tax</MenuItem>
+              </TextField>
+              <br />
               <label>
-                Who Paid?
+                <Typography variant="h6">Who Paid?</Typography>
                 <TextField
                   select
                   id="user"
@@ -174,7 +192,7 @@ class AddExpense extends React.Component {
                 </TextField>
               </label>
               <br />
-
+              <Typography variant="h6">Select participants</Typography>
               {userListForCheckBox}
               <br />
             </div>

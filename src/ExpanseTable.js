@@ -19,11 +19,15 @@ function ExpanseTable(props) {
     return (
       <TableRow key={i}>
         <TableCell>{product.name}</TableCell>
-        <TableCell>Rs. {product.price}</TableCell>
+        <TableCell>
+          Rs. {product.price} + Rs.{" "}
+          {Number(product.tax * product.price).toFixed(2)}(tax) = Rs.{" "}
+          {product.totalPrice}
+        </TableCell>
         <TableCell>{user.name}</TableCell>
         <TableCell>{participants.join(", ")}</TableCell>
         <TableCell>
-          Rs. {(product.price / participants.length).toFixed(2)}
+          Rs. {(product.totalPrice / participants.length).toFixed(2)}
         </TableCell>
       </TableRow>
     );
